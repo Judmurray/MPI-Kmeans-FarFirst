@@ -1,0 +1,32 @@
+mpi_kmeans.c: In function ‘center_cost’:
+mpi_kmeans.c:15:21: error: ‘centers’ redeclared as different kind of symbol
+   15 |     double_int_type centers;
+      |                     ^~~~~~~
+mpi_kmeans.c:13:45: note: previous definition of ‘centers’ was here
+   13 | double center_cost (mat_type* dataset, int* centers, int i, int* arg_max,
+      |                                        ~~~~~^~~~~~~
+mpi_kmeans.c:25:45: error: subscripted value is neither array nor pointer nor vector
+   25 |      mat_get_row(dataset,&row_center,centers[m]);
+      |                                             ^
+mpi_kmeans.c: In function ‘calc_kmeans’:
+mpi_kmeans.c:74:30: error: expected ‘)’ before ‘;’ token
+   74 |     mat_calloc(&kmeans_thread; kmeans->rows; kmeans->cols);
+      |                              ^
+      |                              )
+mpi_kmeans.c:74:5: error: too few arguments to function ‘mat_calloc’
+   74 |     mat_calloc(&kmeans_thread; kmeans->rows; kmeans->cols);
+      |     ^~~~~~~~~~
+In file included from mpi_kmeans.c:5:
+mat.h:16:6: note: declared here
+   16 | void mat_calloc (mat_type* A, int rows, int cols);
+      |      ^~~~~~~~~~
+--------------------------------------------------------------------------
+mpiexec was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: ./mpi_kmeans
+Node: tc017
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+16 total processes failed to start
